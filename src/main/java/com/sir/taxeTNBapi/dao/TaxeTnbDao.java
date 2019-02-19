@@ -8,12 +8,14 @@ package com.sir.taxeTNBapi.dao;
 import com.sir.taxeTNBapi.bean.TaxeTnb;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author Macbook
  */
+@Repository
 public interface TaxeTnbDao extends JpaRepository<TaxeTnb,Long> {
    public TaxeTnb findByReference(String reference);
-   public List<TaxeTnb> FindByTerrainReference(String reference);
+   public List<TaxeTnb> findByTerrainTnbReference(String reference);
 }

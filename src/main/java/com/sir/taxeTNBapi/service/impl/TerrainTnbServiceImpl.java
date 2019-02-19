@@ -28,8 +28,8 @@ public class TerrainTnbServiceImpl implements TerrainTnbService{
     }
 
     @Override
-    public List<TerrainTnb> FindByCategorieReference(String reference) {
-        return terrainTnbDao.FindByCategorieReference(reference);
+    public List<TerrainTnb> findByCategorieTnbReference(String reference) {
+        return terrainTnbDao.findByCategorieTnbReference(reference);
     }
 
     @Override

@@ -10,7 +10,9 @@ import com.sir.taxeTNBapi.service.TerrainTnbService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,23 +21,23 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Macbook
  */
 @RestController
-@RequestMapping({"/taxeTnb-api/terrainTnb"})
+@RequestMapping({"/taxeTnb-api/terrainTnbs"})
 public class TerrainTnbRest {
     
     @Autowired
     TerrainTnbService terrainTnbService;
  
-    @GetMapping("/reference/")
-    public TerrainTnb findByReference(String reference) {
+    @GetMapping("/reference/{reference}")
+    public TerrainTnb findByReference(@PathVariable String reference) {
         return terrainTnbService.findByReference(reference);
     }
     
-    @GetMapping("/listTerrain/")
-    public List<TerrainTnb> FindByCategorieReference(String reference) {
-        return terrainTnbService.FindByCategorieReference(reference);
+    @GetMapping("/listTerrain/{reference}")
+    public List<TerrainTnb> findByCategorieTnbReference(@PathVariable String reference) {
+        return terrainTnbService.findByCategorieTnbReference(reference);
     }
      @PostMapping("/")
-    public int creer(TerrainTnb terrainTnb) {
+    public int creer(@RequestBody TerrainTnb terrainTnb) {
         return terrainTnbService.creer(terrainTnb);
     }
 

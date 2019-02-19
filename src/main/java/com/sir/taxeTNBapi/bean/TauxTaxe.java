@@ -25,6 +25,7 @@ public class TauxTaxe implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String reference;
     private double surfaceMin;
     private double surfaceMax;
     private double montantParMetreCarre;
@@ -116,6 +117,14 @@ public class TauxTaxe implements Serializable {
 
     public void setCategorieTnb(CategorieTnb categorieTnb) {
         this.categorieTnb = categorieTnb;
+    }
+
+    public String getReference() {
+        return reference;
+    }
+
+    public void setReference(String reference) {
+        this.reference = reference;
     }
     
 }

@@ -9,7 +9,9 @@ import com.sir.taxeTNBapi.bean.CategorieTnb;
 import com.sir.taxeTNBapi.service.CategorieTnbService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,19 +20,19 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Macbook
  */
 @RestController
-@RequestMapping({"/taxeTnb-api/categorieTnb"})
+@RequestMapping({"/taxeTnb-api/categorieTnbs"})
 public class CategorieTnbRest {
     
 
     @Autowired
     CategorieTnbService categorieTnbService;
 
-    @GetMapping
-    public CategorieTnb findByReference(String reference) {
+    @GetMapping("/reference/{reference}")
+    public CategorieTnb findByReference(@PathVariable String reference) {
         return categorieTnbService.findByReference(reference);
     }
-    @PostMapping
-    public int creer(CategorieTnb categorieTnb) {
+    @PostMapping("/listCategorie/{reference}")
+    public int creer(@RequestBody  CategorieTnb categorieTnb) {
         return categorieTnbService.creer(categorieTnb);
     }
     

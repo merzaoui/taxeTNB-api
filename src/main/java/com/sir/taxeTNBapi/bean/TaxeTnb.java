@@ -34,7 +34,8 @@ public class TaxeTnb implements Serializable {
     private Date datePaiement;
     @ManyToOne
     private TerrainTnb terrainTnb;
-    
+    private String referenceRedeuvable;
+    private int nombreMoisRetard;
 
     
 
@@ -124,6 +125,22 @@ public class TaxeTnb implements Serializable {
 
     public void setTerrainTnb(TerrainTnb terrainTnb) {
         this.terrainTnb = terrainTnb;
+    }
+
+    public String getReferenceRedeuvable() {
+        return referenceRedeuvable;
+    }
+
+    public void setReferenceRedeuvable(String referenceRedeuvable) {
+        this.referenceRedeuvable = referenceRedeuvable;
+    }
+
+    public int getNombreMoisRetard() {
+        return nombreMoisRetard;
+    }
+
+    public void setNombreMoisRetard(int nombreMoisRetard) {
+        this.nombreMoisRetard = nombreMoisRetard;
     }
     
 }

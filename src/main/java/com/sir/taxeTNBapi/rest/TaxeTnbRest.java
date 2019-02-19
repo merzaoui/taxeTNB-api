@@ -6,12 +6,16 @@
  */
 package com.sir.taxeTNBapi.rest;
 
+import com.sir.taxeTNBapi.bean.TauxTaxe;
 import com.sir.taxeTNBapi.bean.TaxeTnb;
+import com.sir.taxeTNBapi.bean.TerrainTnb;
 import com.sir.taxeTNBapi.service.TaxeTnbService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,23 +24,24 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Macbook
  */
 @RestController
-@RequestMapping({"/taxeTnb-api/TaxeTnb"})
+@RequestMapping({"/taxeTnb-api/TaxeTnbs"})
 public class TaxeTnbRest {
     @Autowired
     TaxeTnbService taxeTnbService;
-    @GetMapping("/taxe")
-    public TaxeTnb findByReference(String reference) {
+   
+    @PostMapping("/")
+    public int creerTaxe(@RequestBody TaxeTnb taxeTnb, TerrainTnb terrainTnb, TauxTaxe tauxTaxe) {
+        return taxeTnbService.creerTaxe(taxeTnb, terrainTnb, tauxTaxe);
+    }
+    @GetMapping("/reference/{reference}")
+    public TaxeTnb findByReference(@PathVariable String reference) {
         return taxeTnbService.findByReference(reference);
     }
-     @GetMapping("/listTaxe/")
-    public List<TaxeTnb> FindByTerrainReference(String reference) {
-        return taxeTnbService.FindByTerrainReference(reference);
+     @GetMapping("/listTaxe/{reference}")
+    public List<TaxeTnb> findByTerrainTnbReference(@PathVariable String reference) {
+        return taxeTnbService.findByTerrainTnbReference(reference);
     }
 
-    @PostMapping("/")
-    public int creer(TaxeTnb taxeTnb) {
-        return taxeTnbService.creer(taxeTnb);
-    }
 
     public TaxeTnbService getTaxeTnbService() {
         return taxeTnbService;

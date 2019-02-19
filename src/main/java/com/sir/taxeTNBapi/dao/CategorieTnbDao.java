@@ -7,11 +7,13 @@ package com.sir.taxeTNBapi.dao;
 
 import com.sir.taxeTNBapi.bean.CategorieTnb;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author Macbook
  */
+@Repository
 public interface CategorieTnbDao extends JpaRepository<CategorieTnb,Long> {
     public CategorieTnb findByReference(String reference);
 }

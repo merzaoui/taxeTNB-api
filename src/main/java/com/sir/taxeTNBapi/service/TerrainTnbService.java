@@ -14,6 +14,6 @@ import java.util.List;
  */
 public interface TerrainTnbService {
     public TerrainTnb findByReference(String reference);
-   public List<TerrainTnb> FindByCategorieReference(String reference);
+   public List<TerrainTnb> findByCategorieTnbReference(String reference);
    public int creer(TerrainTnb terrainTnb);
 }

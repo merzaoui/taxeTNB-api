@@ -16,5 +16,5 @@ public interface TauxTaxeService {
   
     public int creer(TauxTaxe tauxTaxe);
    public TauxTaxe findByReference(String reference);
-   public List<TauxTaxe> FindByCategorieReference(String reference); 
+   public List<TauxTaxe> findByCategorieTnbReference(String reference); 
 }

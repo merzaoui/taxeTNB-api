@@ -34,8 +34,8 @@ public class TauxTaxeServiceImpl implements TauxTaxeService{
     }
 
     @Override
-    public List<TauxTaxe> FindByCategorieReference(String reference) {
-         return tauxTaxeDao.FindByCategorieReference(reference);
+    public List<TauxTaxe> findByCategorieTnbReference(String reference) {
+         return tauxTaxeDao.findByCategorieTnbReference(reference);
     }
 
     public TauxTaxeDao getTauxTaxeDao() {

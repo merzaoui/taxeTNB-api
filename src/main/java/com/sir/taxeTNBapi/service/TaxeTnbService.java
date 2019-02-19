@@ -5,7 +5,9 @@
  */
 package com.sir.taxeTNBapi.service;
 
+import com.sir.taxeTNBapi.bean.TauxTaxe;
 import com.sir.taxeTNBapi.bean.TaxeTnb;
+import com.sir.taxeTNBapi.bean.TerrainTnb;
 import java.util.List;
 
 /**
@@ -14,6 +16,6 @@ import java.util.List;
  */
 public interface TaxeTnbService {
     public TaxeTnb findByReference(String reference);
-   public List<TaxeTnb> FindByTerrainReference(String reference);
-   public int creer(TaxeTnb taxeTnb);
+   public List<TaxeTnb> findByTerrainTnbReference(String reference);
+  public int creerTaxe(TaxeTnb taxeTnb,TerrainTnb terrainTnb,TauxTaxe tauxTaxe);
 }
